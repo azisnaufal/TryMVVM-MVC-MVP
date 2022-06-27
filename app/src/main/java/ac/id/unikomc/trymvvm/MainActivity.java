@@ -14,12 +14,30 @@ public class MainActivity extends AppCompatActivity {
     private EditText fahrenheit;
     private EditText reamur;
 
+    private MainViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initView();
+        initViewModel();
+        observeTemperature();
+    }
+
+    private void observeTemperature() {
+        viewModel.getCelsius().observe(this, celsius -> {
+            String parsedReamur = getString(R.string.float_to_string, celsius.toReamur());
+            String parsedFahrenheit = getString(R.string.float_to_string, celsius.toFahrenheit());
+
+            reamur.setText(parsedReamur);
+            fahrenheit.setText(parsedFahrenheit);
+        });
+    }
+
+    private void initViewModel() {
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
     }
 
     private void initView() {
@@ -40,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                String celsius = editable.toString();
+                viewModel.setCelsius(celsius);
             }
         });
     }

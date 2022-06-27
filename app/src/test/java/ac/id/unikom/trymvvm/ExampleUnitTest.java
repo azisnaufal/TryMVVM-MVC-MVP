@@ -1,4 +1,4 @@
-package ac.id.unikomc.trymvvm;
+package ac.id.unikom.trymvvm;
 
 import org.junit.Test;
 

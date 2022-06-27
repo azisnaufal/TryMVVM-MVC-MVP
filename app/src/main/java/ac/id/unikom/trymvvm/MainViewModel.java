@@ -20,7 +20,7 @@ public class MainViewModel extends ViewModel {
         if (stringCelsius.isEmpty())
             stringCelsius = "0";
 
-        float parsedCelsius = Float.parseFloat(stringCelsius);
+        double parsedCelsius = Double.parseDouble(stringCelsius);
 
         Celsius celsius = new Celsius();
         celsius.setCelsius(parsedCelsius);

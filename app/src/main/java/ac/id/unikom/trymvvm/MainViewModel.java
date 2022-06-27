@@ -25,6 +25,6 @@ public class MainViewModel extends ViewModel {
         Celsius celsius = new Celsius();
         celsius.setCelsius(parsedCelsius);
 
-        this.celsius.postValue(celsius);
+        this.celsius.setValue(celsius);
     }
 }

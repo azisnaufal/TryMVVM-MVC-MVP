@@ -1,4 +1,4 @@
-package ac.id.unikom.trymvvm;
+package ac.id.unikom.tryccdp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ac.id.unikom.trymvvm", appContext.getPackageName());
+        assertEquals("ac.id.unikom.tryccdp", appContext.getPackageName());
     }
 }

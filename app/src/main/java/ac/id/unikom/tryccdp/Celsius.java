@@ -8,8 +8,8 @@ public class Celsius {
 
     private double celsius;
 
-    private MutableLiveData<Double> reamur;
-    private MutableLiveData<Double> fahrenheit;
+    private MutableLiveData<String> reamur;
+    private MutableLiveData<String> fahrenheit;
 
     private Celsius() {
         this.celsius = 0;
@@ -25,11 +25,11 @@ public class Celsius {
         return instance;
     }
 
-    public LiveData<Double> getReamur() {
+    public LiveData<String> getReamur() {
         return reamur;
     }
 
-    public LiveData<Double> getFahrenheit() {
+    public LiveData<String> getFahrenheit() {
         return fahrenheit;
     }
 
@@ -39,11 +39,11 @@ public class Celsius {
 
     public void toReamur() {
         double reamur = 0.8 * celsius;
-        this.reamur.setValue(reamur);
+        this.reamur.setValue(reamur + "");
     }
 
     public void toFahrenheit() {
         double fahrenheit = (1.8 * celsius) + 32;
-        this.fahrenheit.setValue(fahrenheit);
+        this.fahrenheit.setValue(fahrenheit + "");
     }
 }

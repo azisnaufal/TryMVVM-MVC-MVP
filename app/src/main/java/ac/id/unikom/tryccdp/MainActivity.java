@@ -7,16 +7,18 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView{
 
     private EditText celsius;
     private EditText fahrenheit;
     private EditText reamur;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter = new MainPresenter(this);
 
         initView();
     }
@@ -39,8 +41,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                presenter.calculateTemperature(editable.toString());
             }
         });
+    }
+
+    @Override
+    public void showReamur(String reamur) {
+        this.reamur.setText(reamur);
+    }
+
+    @Override
+    public void showFahrenheit(String fahrenheit) {
+        this.fahrenheit.setText(fahrenheit);
     }
 }

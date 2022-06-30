@@ -1,4 +1,4 @@
-package ac.id.unikom.trymvvm;
+package ac.id.unikom.tryccdp;
 
 public class Celsius {
     private double celsius;

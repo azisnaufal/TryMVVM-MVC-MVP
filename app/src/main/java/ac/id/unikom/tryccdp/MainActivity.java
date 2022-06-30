@@ -55,4 +55,10 @@ public class MainActivity extends AppCompatActivity implements MainView{
     public void showFahrenheit(String fahrenheit) {
         this.fahrenheit.setText(fahrenheit);
     }
+
+    @Override
+    protected void onDestroy() {
+        presenter = null;
+        super.onDestroy();
+    }
 }

@@ -4,15 +4,25 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class Celsius {
+    private static Celsius instance;
+
     private double celsius;
 
     private MutableLiveData<Double> reamur;
     private MutableLiveData<Double> fahrenheit;
 
-    public Celsius() {
+    private Celsius() {
         this.celsius = 0;
         this.reamur = new MutableLiveData<>();
         this.fahrenheit = new MutableLiveData<>();
+    }
+
+    public static synchronized Celsius getInstance() {
+        if (instance == null) {
+            instance = new Celsius();
+        }
+
+        return instance;
     }
 
     public LiveData<Double> getReamur() {

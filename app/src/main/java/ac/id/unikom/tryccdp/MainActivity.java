@@ -64,4 +64,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public String getCelsius() {
         return celsius.getText().toString();
     }
+
+    @Override
+    protected void onDestroy() {
+        controller = null;
+        Celsius.destroy();
+        super.onDestroy();
+    }
 }

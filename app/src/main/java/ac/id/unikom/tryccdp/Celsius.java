@@ -25,6 +25,10 @@ public class Celsius {
         return instance;
     }
 
+    public static void destroy() {
+        instance = null;
+    }
+
     public LiveData<String> getReamur() {
         return reamur;
     }
